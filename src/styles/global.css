@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pineapple-50: #fffbeb;
+  --color-pineapple-100: #fef3c7;
+  --color-pineapple-200: #fde68a;
+  --color-pineapple-300: #fcd34d;
+  --color-pineapple-400: #fbbf24;
+  --color-pineapple-500: #f59e0b;
+  --color-pineapple-600: #d97706;
+  --color-pineapple-700: #b45309;
+  --color-pineapple-800: #92400e;
+  --color-pineapple-900: #78350f;
+
+  --color-leaf-400: #4ade80;
+  --color-leaf-500: #22c55e;
+  --color-leaf-600: #16a34a;
+  --color-leaf-700: #15803d;
+
+  --color-dark-900: #0c0a09;
+  --color-dark-800: #1c1917;
+  --color-dark-700: #292524;
+  --color-dark-600: #44403c;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-dark-900);
+    color: #fafaf9;
+  }
+
+  ::selection {
+    background-color: var(--color-pineapple-400);
+    color: var(--color-dark-900);
+  }
+}
