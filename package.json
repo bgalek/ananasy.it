@@ -1,7 +1,6 @@
 {
   "name": "ananasy.it",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,7 +9,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "^5.17.1",
+    "astro": "^5.18.0",
     "tailwindcss": "^4.2.1"
   }
 }

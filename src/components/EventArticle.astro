@@ -1,0 +1,46 @@
+---
+interface Props {
+  id: string;
+  index: string;
+  title: string;
+  subtitle: string;
+  duration: string;
+  description: string;
+}
+
+const { id, index, title, subtitle, duration, description } = Astro.props;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": title,
+  "description": description,
+  "provider": {
+    "@type": "Organization",
+    "name": "ananasy.it",
+    "url": "https://ananasy.it"
+  },
+  "areaServed": "Poland",
+  "serviceType": "IT Entertainment and Education"
+};
+---
+
+<article id={id} class="relative">
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">{index}</div>
+  <div class="md:ml-16 lg:ml-24">
+    <div class="mb-6">
+      <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">{title}</h3>
+      <p class="text-stone-400 mt-1 italic">{subtitle}</p>
+    </div>
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
+      <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      {duration}
+    </div>
+    <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
+      {description}
+    </p>
+
+    <slot />
+  </div>
+</article>

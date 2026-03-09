@@ -7,9 +7,31 @@ interface Props {
 }
 
 const {
-  title = "ananasy.it — Eventy IT, które zapamiętasz",
+  title = "ananasy.it - Eventy IT, które zapamiętasz",
   description = "Interaktywne eventy IT: teleturnieje, code kata, CSS battles i hackatony. Dodaj pikanterii swoim spotkaniom firmowym!"
 } = Astro.props;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ananasy.it",
+  "url": "https://ananasy.it",
+  "logo": "https://ananasy.it/favicon.svg",
+  "description": description,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "kontakt@ananasy.it",
+    "contactType": "customer service"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ananasy.it",
+  "url": "https://ananasy.it",
+  "description": description
+};
 ---
 <!doctype html>
 <html lang="pl">
@@ -22,6 +44,8 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
   <body class="antialiased">
     <slot />

@@ -1,291 +1,251 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import EventArticle from '../components/EventArticle.astro';
+import ReasonCard from '../components/ReasonCard.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
-  <section class="relative py-24 md:py-32 flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(0deg, #fbbf24 0px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #fbbf24 0px, transparent 1px, transparent 60px);"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-pineapple-400/5 blur-[120px]"></div>
+  <Hero />
 
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
-        <span class="text-pineapple-400">ananasy</span><span class="text-stone-400">.</span><span class="text-leaf-400">it</span>
-      </h1>
-
-      <p class="text-lg md:text-xl text-stone-400 max-w-2xl mx-auto mb-4 font-[family-name:var(--font-mono)] text-sm">
-        <span class="text-stone-500">// </span>eventy IT, które zapamiętasz
-      </p>
-
-      <p class="text-stone-500 max-w-xl mx-auto mb-12 text-base">
-        Interaktywne teleturnieje, code kata, CSS battles i hackatony. Dodaj pikanterii swoim spotkaniom firmowym.
-      </p>
-
-      <a href="#events" class="inline-flex items-center gap-2 px-6 py-3 bg-pineapple-400 text-dark-900 font-semibold rounded-lg hover:bg-pineapple-300 transition-colors">
-        Zobacz ofertę
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-      </a>
-    </div>
-
-  </section>
-
-  <section id="events" class="py-24 px-6">
+  <main id="events" class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-20">
-        <p class="font-[family-name:var(--font-mono)] text-pineapple-400 text-sm mb-4">ls -la ./events/</p>
-        <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold">
-          Nasza oferta
-        </h2>
-      </div>
+      <SectionHeader command="ls -la ./events/" title="Nasza oferta" />
 
       <div class="space-y-16 md:space-y-24">
 
-        <article id="vabank" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">01</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Va Bank IT</h3>
-              <p class="text-stone-400 mt-1 italic">Parodia teleturnieju, w której nikt nie jest bezpieczny</p>
+        <EventArticle
+          id="vabank"
+          index="01"
+          title="Va Bank IT"
+          subtitle="Parodia teleturnieju, w której nikt nie jest bezpieczny"
+          duration="45 min (1 rozgrywka)"
+          description={`Trzech uczestników walczy o wygraną w parodii popularnego teleturnieju "Va Banque". Kategorie pytań sprawiają wrażenie wiedzy ogólnej, ale kryją w sobie prawdziwie nerdowskie zagadki.`}
+        >
+          <div class="grid md:grid-cols-3 gap-3 mb-8">
+            <div class="overflow-hidden rounded-lg border border-dark-600 md:col-span-2 md:row-span-2">
+              <img src="/img/vabank-it-01.webp" alt="Va Bank IT" class="w-full h-full object-cover" fetchpriority="high" />
             </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              45 min (1 rozgrywka)
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/vabank-it-02.webp" alt="Va Bank IT" class="w-full h-full object-cover" fetchpriority="high" />
             </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Trzech uczestników walczy o wygraną w parodii popularnego teleturnieju „Va Banque". Kategorie pytań sprawiają wrażenie wiedzy ogólnej, ale kryją w sobie prawdziwie nerdowskie zagadki.
-            </p>
-            <div class="grid md:grid-cols-3 gap-3 mb-8">
-              <div class="overflow-hidden rounded-lg border border-dark-600 md:col-span-2 md:row-span-2">
-                <img src="/img/vabank-it-01.webp" alt="Va Bank IT" class="w-full h-full object-cover" fetchpriority="high" />
-              </div>
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/vabank-it-02.webp" alt="Va Bank IT" class="w-full h-full object-cover" fetchpriority="high" />
-              </div>
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/vabank-it-03.webp" alt="Va Bank IT" class="w-full h-full object-cover" fetchpriority="high" />
-              </div>
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/vabank-it-03.webp" alt="Va Bank IT" class="w-full h-full object-cover" fetchpriority="high" />
             </div>
-            <div class="mb-8">
-              <p class="font-[family-name:var(--font-mono)] text-pineapple-400 text-sm mb-4">// przykładowe pytania</p>
-              <div class="grid md:grid-cols-3 gap-4">
-                <div class="bg-dark-800 border border-dark-600 rounded-lg p-4">
-                  <p class="text-pineapple-400 text-xs font-[family-name:var(--font-mono)] uppercase tracking-wider mb-2">Matematyka</p>
-                  <p class="text-stone-200 font-medium mb-2">SSH + DNS = ?</p>
-                  <p class="text-stone-500 text-sm">dodawanie portów: 22 + 53 = 75</p>
-                </div>
-                <div class="bg-dark-800 border border-dark-600 rounded-lg p-4">
-                  <p class="text-pineapple-400 text-xs font-[family-name:var(--font-mono)] uppercase tracking-wider mb-2">Geografia</p>
-                  <p class="text-stone-200 font-medium mb-2">Jaki kraj ma domenę .aq?</p>
-                  <p class="text-stone-500 text-sm">Antarktyda (TLD)</p>
-                </div>
-                <div class="bg-dark-800 border border-dark-600 rounded-lg p-4">
-                  <p class="text-pineapple-400 text-xs font-[family-name:var(--font-mono)] uppercase tracking-wider mb-2">Muzyka</p>
-                  <p class="text-stone-200 font-medium mb-2">Mozart czy Pokemony?</p>
-                  <p class="text-stone-500 text-sm">puszczamy dźwięk i zgadujemy</p>
-                </div>
-              </div>
-            </div>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>"Koło ratunkowe" to telefon do mamy prowadzącego</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>"Koło ratunkowe" to Wikipedia... ale tylko czeska</span>
-                </li>
-              </ul>
-            </div>
-            <p class="mt-4 text-pineapple-400 font-[family-name:var(--font-mono)] text-sm">
-              * Da się zrobić dwie rozgrywki bez problemu!
-            </p>
           </div>
-        </article>
-
-        <article id="hackercourt" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">02</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Hacker Court</h3>
-              <p class="text-stone-400 mt-1 italic">Cyberprzestępczość spotyka dramat sądowy</p>
-            </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              45 min — 1h
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Uczestnicy wcielają się w rolę ławy przysięgłych. Dwaj prawnicy zmierzą się w fikcyjnej sprawie, w której oskarżonym jest biedny haker. To doskonała okazja, by uczyć się na cudzych błędach i zgłębić mechanizmy postępowania prawnego w świecie cyberprzestępczości.
-            </p>
-            <div class="grid md:grid-cols-2 gap-3 mb-8">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/hacker-court-01.webp" alt="Hacker Court" class="w-full object-cover" loading="lazy" />
+          <div class="mb-8">
+            <p class="font-[family-name:var(--font-mono)] text-pineapple-400 text-sm mb-4">// przykładowe pytania</p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-dark-800 border border-dark-600 rounded-lg p-4">
+                <p class="text-pineapple-400 text-xs font-[family-name:var(--font-mono)] uppercase tracking-wider mb-2">Matematyka</p>
+                <p class="text-stone-200 font-medium mb-2">SSH + DNS = ?</p>
+                <p class="text-stone-500 text-sm">dodawanie portów: 22 + 53 = 75</p>
               </div>
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/hacker-court-02.webp" alt="Hacker Court" class="w-full object-cover" loading="lazy" />
+              <div class="bg-dark-800 border border-dark-600 rounded-lg p-4">
+                <p class="text-pineapple-400 text-xs font-[family-name:var(--font-mono)] uppercase tracking-wider mb-2">Geografia</p>
+                <p class="text-stone-200 font-medium mb-2">Jaki kraj ma domenę .aq?</p>
+                <p class="text-stone-500 text-sm">Antarktyda (TLD)</p>
+              </div>
+              <div class="bg-dark-800 border border-dark-600 rounded-lg p-4">
+                <p class="text-pineapple-400 text-xs font-[family-name:var(--font-mono)] uppercase tracking-wider mb-2">Muzyka</p>
+                <p class="text-stone-200 font-medium mb-2">Mozart czy Pokemony?</p>
+                <p class="text-stone-500 text-sm">puszczamy dźwięk i zgadujemy</p>
               </div>
             </div>
           </div>
-        </article>
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>"Koło ratunkowe" to telefon do mamy prowadzącego</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>"Koło ratunkowe" to Wikipedia... ale tylko czeska</span>
+              </li>
+            </ul>
+          </div>
+          <p class="mt-4 text-pineapple-400 font-[family-name:var(--font-mono)] text-sm">
+            * Da się zrobić dwie rozgrywki bez problemu!
+          </p>
+        </EventArticle>
 
-        <article id="codekata" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">03</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Code Kata: Hackserver</h3>
-              <p class="text-stone-400 mt-1 italic">Nie chodzi o rozwiązanie — chodzi o drogę</p>
+        <EventArticle
+          id="hackercourt"
+          index="02"
+          title="Hacker Court"
+          subtitle="Cyberprzestępczość spotyka dramat sądowy"
+          duration="45 min - 1h"
+          description="Uczestnicy wcielają się w rolę ławy przysięgłych. Dwaj prawnicy zmierzą się w fikcyjnej sprawie, w której oskarżonym jest biedny haker. To doskonała okazja, by uczyć się na cudzych błędach i zgłębić mechanizmy postępowania prawnego w świecie cyberprzestępczości."
+        >
+          <div class="grid md:grid-cols-2 gap-3 mb-8">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/hacker-court-01.webp" alt="Hacker Court" class="w-full object-cover" loading="lazy" />
             </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              4h — 6h
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Code kata to ćwiczenie, które pomaga programistom doskonalić umiejętności poprzez powtarzanie. Hackserver to zestaw prostych ćwiczeń ze świata mikrousług i algorytmów — do rozwiązania w krótkim czasie, w dowolnej technologii. A to wszystko na punkty!
-            </p>
-            <div class="mb-8">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/code-kata-01.webp" alt="Code Kata: Hackserver" class="w-full object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Dowolna technologia</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Ćwiczenia z mikrousług i algorytmów</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Rywalizacja na punkty</span>
-                </li>
-              </ul>
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/hacker-court-02.webp" alt="Hacker Court" class="w-full object-cover" loading="lazy" />
             </div>
           </div>
-        </article>
+        </EventArticle>
 
-        <article id="hackmerlin" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">04</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Hack Merlin</h3>
-              <p class="text-stone-400 mt-1 italic">Prompt injection — przechytrz Merlina!</p>
+        <EventArticle
+          id="codekata"
+          index="03"
+          title="Code Kata: Hackserver"
+          subtitle="Nie chodzi o rozwiązanie - chodzi o drogę"
+          duration="4h - 6h"
+          description="Code kata to ćwiczenie, które pomaga programistom doskonalić umiejętności poprzez powtarzanie. Hackserver to zestaw prostych ćwiczeń ze świata mikrousług i algorytmów - do rozwiązania w krótkim czasie, w dowolnej technologii. A to wszystko na punkty!"
+        >
+          <div class="mb-8">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/code-kata-01.webp" alt="Code Kata: Hackserver" class="w-full object-cover" loading="lazy" />
             </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              cały dzień
+          </div>
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Dowolna technologia</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Ćwiczenia z mikrousług i algorytmów</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Rywalizacja na punkty</span>
+              </li>
+            </ul>
+          </div>
+        </EventArticle>
+
+        <EventArticle
+          id="hackmerlin"
+          index="04"
+          title="Hack Merlin"
+          subtitle="Prompt injection - przechytrz Merlina!"
+          duration="cały dzień"
+          description="hackmerlin.io (wersja webowa) albo secure-code-game (wersja CLI) - to gra w prompt injection. Zadawaj sprytne pytania i spraw, aby Merlin zdradził hasło do każdego poziomu. Merlin staje się mądrzejszy z każdym poziomem. Czy uda Ci się pokonać Level 7?"
+        >
+          <div class="overflow-hidden rounded-lg border border-dark-600 mb-3">
+            <img src="/img/secure-code-game-01.gif" alt="Secure Code Game" class="w-full object-contain" loading="lazy" />
+          </div>
+          <div class="hidden md:grid md:grid-cols-2 gap-3 mb-8">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/hackmerlin-01.webp" alt="Hack Merlin" class="w-full object-contain" loading="lazy" />
             </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              hackmerlin.io (wersja webowa) albo secure-code-game (wersja CLI) — to gra w prompt injection. Zadawaj sprytne pytania i spraw, aby Merlin zdradził hasło do każdego poziomu. Merlin staje się mądrzejszy z każdym poziomem. Czy uda Ci się pokonać Level 7?
-            </p>
-            <div class="overflow-hidden rounded-lg border border-dark-600 mb-3">
-              <img src="/img/secure-code-game-01.gif" alt="Secure Code Game" class="w-full object-contain" loading="lazy" />
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/hackmerlin-02.webp" alt="Hack Merlin" class="w-full object-contain" loading="lazy" />
             </div>
-            <div class="hidden md:grid md:grid-cols-2 gap-3 mb-8">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/hackmerlin-01.webp" alt="Hack Merlin" class="w-full object-contain" loading="lazy" />
+          </div>
+          <div class="md:hidden relative mb-8" x-data="{ current: 0, total: 2, touchStartX: 0 }" @touchstart="touchStartX = $event.touches[0].clientX" @touchend="if (touchStartX - $event.changedTouches[0].clientX > 50) current = (current + 1) % total; if (touchStartX - $event.changedTouches[0].clientX < -50) current = (current - 1 + total) % total;">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
+                <img src="/img/hackmerlin-01.webp" alt="Hack Merlin" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+                <img src="/img/hackmerlin-02.webp" alt="Hack Merlin" class="w-full flex-shrink-0 object-contain" loading="lazy" />
               </div>
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/hackmerlin-02.webp" alt="Hack Merlin" class="w-full object-contain" loading="lazy" />
+            </div>
+            <button @click="current = current > 0 ? current - 1 : total - 1" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button @click="current = current < total - 1 ? current + 1 : 0" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            <div class="flex justify-center gap-2 mt-3">
+              <template x-for="i in total">
+                <button @click="current = i - 1" :class="current === i - 1 ? 'bg-pineapple-400' : 'bg-dark-600'" class="w-2 h-2 rounded-full transition-colors"></button>
+              </template>
+            </div>
+          </div>
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Wersja webowa oraz jako kod</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>7 poziomów trudności</span>
+              </li>
+            </ul>
+          </div>
+        </EventArticle>
+
+        <EventArticle
+          id="cssbattles"
+          index="05"
+          title="CSS Battles"
+          subtitle="Esport dla programistów i programistek!"
+          duration="W zależności od liczby uczestników"
+          description="Formuła turniejowa (drabinka), w której uczestnicy po kolei mają za zadanie odwzorować kodem CSS dokładnie to, co widzą na obrazku - i to na czas! Napięcie, epicka muzyka w tle i emocje po sam sufit. Działa dobrze online (Twitch/YouTube), ale jeszcze lepiej na żywo!"
+        >
+          <div class="relative mb-8" x-data="{ current: 0, total: 2, touchStartX: 0 }" @touchstart="touchStartX = $event.touches[0].clientX" @touchend="if (touchStartX - $event.changedTouches[0].clientX > 50) current = (current + 1) % total; if (touchStartX - $event.changedTouches[0].clientX < -50) current = (current - 1 + total) % total;">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
+                <img src="/img/cssbattles-02.webp" alt="CSS Battles" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+                <img src="/img/cssbattles-03.webp" alt="CSS Battles" class="w-full flex-shrink-0 object-cover" loading="lazy" />
               </div>
             </div>
-            <div class="md:hidden relative mb-8" x-data="{ current: 0, total: 2 }">
+            <button @click="current = current > 0 ? current - 1 : total - 1" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button @click="current = current < total - 1 ? current + 1 : 0" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            <div class="flex justify-center gap-2 mt-3">
+              <template x-for="i in total">
+                <button @click="current = i - 1" :class="current === i - 1 ? 'bg-pineapple-400' : 'bg-dark-600'" class="w-2 h-2 rounded-full transition-colors"></button>
+              </template>
+            </div>
+          </div>
+        </EventArticle>
+
+        <EventArticle
+          id="spacepanic"
+          index="06"
+          title="Space Panic"
+          subtitle="Cała firma na jednym pokładzie"
+          duration="30 min - 1h"
+          description="Wspólna gra online dla całej firmy! Rozwiązujecie zadania i zdobywacie punkty, tak aby załoga rakiety dotarła do celu. Idealna integracja, w której liczy się współpraca i szybkie myślenie."
+        >
+          <div class="md:hidden relative mb-8" x-data="{ current: 0, total: 3, touchStartX: 0 }" @touchstart="touchStartX = $event.touches[0].clientX" @touchend="if (touchStartX - $event.changedTouches[0].clientX > 50) current = (current + 1) % total; if (touchStartX - $event.changedTouches[0].clientX < -50) current = (current - 1 + total) % total;">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
+                <img src="/img/space-panic-01.webp" alt="Space Panic" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+                <img src="/img/space-panic-02.webp" alt="Space Panic" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+                <img src="/img/space-panic-03.webp" alt="Space Panic" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+              </div>
+            </div>
+            <button @click="current = current > 0 ? current - 1 : total - 1" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button @click="current = current < total - 1 ? current + 1 : 0" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            <div class="flex justify-center gap-2 mt-3">
+              <template x-for="i in total">
+                <button @click="current = i - 1" :class="current === i - 1 ? 'bg-pineapple-400' : 'bg-dark-600'" class="w-2 h-2 rounded-full transition-colors"></button>
+              </template>
+            </div>
+          </div>
+          <div class="hidden md:grid md:grid-cols-2 gap-3 mb-8 items-start">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/space-panic-01.webp" alt="Space Panic" class="w-full object-contain" loading="lazy" />
+            </div>
+            <div class="relative" x-data="{ current: 0, total: 2, touchStartX: 0 }" @touchstart="touchStartX = $event.touches[0].clientX" @touchend="if (touchStartX - $event.changedTouches[0].clientX > 50) current = (current + 1) % total; if (touchStartX - $event.changedTouches[0].clientX < -50) current = (current - 1 + total) % total;">
               <div class="overflow-hidden rounded-lg border border-dark-600">
                 <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
-                  <img src="/img/hackmerlin-01.webp" alt="Hack Merlin" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                  <img src="/img/hackmerlin-02.webp" alt="Hack Merlin" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                </div>
-              </div>
-              <button @click="current = current > 0 ? current - 1 : total - 1" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-              </button>
-              <button @click="current = current < total - 1 ? current + 1 : 0" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-              </button>
-              <div class="flex justify-center gap-2 mt-3">
-                <template x-for="i in total">
-                  <button @click="current = i - 1" :class="current === i - 1 ? 'bg-pineapple-400' : 'bg-dark-600'" class="w-2 h-2 rounded-full transition-colors"></button>
-                </template>
-              </div>
-            </div>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Wersja webowa oraz jako kod</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>7 poziomów trudności</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article id="cssbattles" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">05</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">CSS Battles</h3>
-              <p class="text-stone-400 mt-1 italic">Esport dla programistów i programistek!</p>
-            </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              W zależności od liczby uczestników
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Formuła turniejowa (drabinka), w której uczestnicy po kolei mają za zadanie odwzorować kodem CSS dokładnie to, co widzą na obrazku — i to na czas! Napięcie, epicka muzyka w tle i emocje po sam sufit. Działa dobrze online (Twitch/YouTube), ale jeszcze lepiej na żywo!
-            </p>
-            <div class="relative mb-8" x-data="{ current: 0, total: 2 }">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
-                  <img src="/img/cssbattles-02.webp" alt="CSS Battles" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                  <img src="/img/cssbattles-03.webp" alt="CSS Battles" class="w-full flex-shrink-0 object-cover" loading="lazy" />
-                </div>
-              </div>
-              <button @click="current = current > 0 ? current - 1 : total - 1" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-              </button>
-              <button @click="current = current < total - 1 ? current + 1 : 0" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-              </button>
-              <div class="flex justify-center gap-2 mt-3">
-                <template x-for="i in total">
-                  <button @click="current = i - 1" :class="current === i - 1 ? 'bg-pineapple-400' : 'bg-dark-600'" class="w-2 h-2 rounded-full transition-colors"></button>
-                </template>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article id="spacepanic" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">06</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Space Panic</h3>
-              <p class="text-stone-400 mt-1 italic">Cała firma na jednym pokładzie</p>
-            </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              30 min — 1h
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Wspólna gra online dla całej firmy! Rozwiązujecie zadania i zdobywacie punkty, tak aby załoga rakiety dotarła do celu. Idealna integracja, w której liczy się współpraca i szybkie myślenie.
-            </p>
-            <div class="md:hidden relative mb-8" x-data="{ current: 0, total: 3 }">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
-                  <img src="/img/space-panic-01.webp" alt="Space Panic" class="w-full flex-shrink-0 object-contain" loading="lazy" />
                   <img src="/img/space-panic-02.webp" alt="Space Panic" class="w-full flex-shrink-0 object-contain" loading="lazy" />
                   <img src="/img/space-panic-03.webp" alt="Space Panic" class="w-full flex-shrink-0 object-contain" loading="lazy" />
                 </div>
               </div>
-              <button @click="current = current > 0 ? current - 1 : total - 1" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
+              <button @click="current = current > 0 ? current - 1 : total - 1" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
               </button>
-              <button @click="current = current < total - 1 ? current + 1 : 0" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
+              <button @click="current = current < total - 1 ? current + 1 : 0" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </button>
               <div class="flex justify-center gap-2 mt-3">
@@ -294,77 +254,72 @@ import Layout from '../layouts/Layout.astro';
                 </template>
               </div>
             </div>
-            <div class="hidden md:grid md:grid-cols-2 gap-3 mb-8 items-start">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/space-panic-01.webp" alt="Space Panic" class="w-full object-contain" loading="lazy" />
-              </div>
-              <div class="relative" x-data="{ current: 0, total: 2 }">
-                <div class="overflow-hidden rounded-lg border border-dark-600">
-                  <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
-                    <img src="/img/space-panic-02.webp" alt="Space Panic" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                    <img src="/img/space-panic-03.webp" alt="Space Panic" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                  </div>
-                </div>
-                <button @click="current = current > 0 ? current - 1 : total - 1" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-                <button @click="current = current < total - 1 ? current + 1 : 0" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-                <div class="flex justify-center gap-2 mt-3">
-                  <template x-for="i in total">
-                    <button @click="current = i - 1" :class="current === i - 1 ? 'bg-pineapple-400' : 'bg-dark-600'" class="w-2 h-2 rounded-full transition-colors"></button>
-                  </template>
-                </div>
+          </div>
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Gra przeglądarkowa - wystarczy link</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Skaluje się do setek uczestników</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Wspólny cel = wspólna zabawa</span>
+              </li>
+            </ul>
+          </div>
+        </EventArticle>
+
+        <EventArticle
+          id="phishing"
+          index="07"
+          title="Phishing Game"
+          subtitle="Nauka przez zabawę - czy to phishing?"
+          duration="30 min - 1h"
+          description="Zgadywanie i zbieranie punktów - czy dany e-mail to phishing, czy prawdziwa wiadomość? Interaktywna gra, która uczy rozpoznawać zagrożenia w skrzynce mailowej. Świetna forma budowania świadomości bezpieczeństwa w całej organizacji."
+        >
+          <div class="md:hidden relative mb-8" x-data="{ current: 0, total: 5, touchStartX: 0 }" @touchstart="touchStartX = $event.touches[0].clientX" @touchend="if (touchStartX - $event.changedTouches[0].clientX > 50) current = (current + 1) % total; if (touchStartX - $event.changedTouches[0].clientX < -50) current = (current - 1 + total) % total;">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
+                <img src="/img/phishing-game-1.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+                <img src="/img/phishing-game-2.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+                <img src="/img/phishing-game-3.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+                <img src="/img/phishing-game-4.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
+                <img src="/img/phishing-game-5.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
               </div>
             </div>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Gra przeglądarkowa — wystarczy link</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Skaluje się do setek uczestników</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Wspólny cel = wspólna zabawa</span>
-                </li>
-              </ul>
+            <button @click="current = current > 0 ? current - 1 : total - 1" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button @click="current = current < total - 1 ? current + 1 : 0" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            <div class="flex justify-center gap-2 mt-3">
+              <template x-for="i in total">
+                <button @click="current = i - 1" :class="current === i - 1 ? 'bg-pineapple-400' : 'bg-dark-600'" class="w-2 h-2 rounded-full transition-colors"></button>
+              </template>
             </div>
           </div>
-        </article>
-
-        <article id="phishing" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">07</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Phishing Game</h3>
-              <p class="text-stone-400 mt-1 italic">Nauka przez zabawę — czy to phishing?</p>
+          <div class="hidden md:grid md:grid-cols-2 gap-3 mb-8 items-start">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/phishing-game-1.webp" alt="Phishing Game" class="w-full object-contain" loading="lazy" />
             </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              30 min — 1h
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Zgadywanie i zbieranie punktów — czy dany e-mail to phishing, czy prawdziwa wiadomość? Interaktywna gra, która uczy rozpoznawać zagrożenia w skrzynce mailowej. Świetna forma budowania świadomości bezpieczeństwa w całej organizacji.
-            </p>
-            <div class="md:hidden relative mb-8" x-data="{ current: 0, total: 5 }">
+            <div class="relative" x-data="{ current: 0, total: 4, touchStartX: 0 }" @touchstart="touchStartX = $event.touches[0].clientX" @touchend="if (touchStartX - $event.changedTouches[0].clientX > 50) current = (current + 1) % total; if (touchStartX - $event.changedTouches[0].clientX < -50) current = (current - 1 + total) % total;">
               <div class="overflow-hidden rounded-lg border border-dark-600">
                 <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
-                  <img src="/img/phishing-game-1.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
                   <img src="/img/phishing-game-2.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
                   <img src="/img/phishing-game-3.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
                   <img src="/img/phishing-game-4.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
                   <img src="/img/phishing-game-5.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
                 </div>
               </div>
-              <button @click="current = current > 0 ? current - 1 : total - 1" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
+              <button @click="current = current > 0 ? current - 1 : total - 1" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
               </button>
-              <button @click="current = current < total - 1 ? current + 1 : 0" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
+              <button @click="current = current < total - 1 ? current + 1 : 0" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </button>
               <div class="flex justify-center gap-2 mt-3">
@@ -373,220 +328,163 @@ import Layout from '../layouts/Layout.astro';
                 </template>
               </div>
             </div>
-            <div class="hidden md:grid md:grid-cols-2 gap-3 mb-8 items-start">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/phishing-game-1.webp" alt="Phishing Game" class="w-full object-contain" loading="lazy" />
-              </div>
-              <div class="relative" x-data="{ current: 0, total: 4 }">
-                <div class="overflow-hidden rounded-lg border border-dark-600">
-                  <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${current * 100}%)`">
-                    <img src="/img/phishing-game-2.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                    <img src="/img/phishing-game-3.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                    <img src="/img/phishing-game-4.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                    <img src="/img/phishing-game-5.webp" alt="Phishing Game" class="w-full flex-shrink-0 object-contain" loading="lazy" />
-                  </div>
-                </div>
-                <button @click="current = current > 0 ? current - 1 : total - 1" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Poprzednie zdjęcie">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-                <button @click="current = current < total - 1 ? current + 1 : 0" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark-900/70 border border-dark-600 text-stone-300 flex items-center justify-center hover:bg-dark-900 transition-colors" aria-label="Następne zdjęcie">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-                <div class="flex justify-center gap-2 mt-3">
-                  <template x-for="i in total">
-                    <button @click="current = i - 1" :class="current === i - 1 ? 'bg-pineapple-400' : 'bg-dark-600'" class="w-2 h-2 rounded-full transition-colors"></button>
-                  </template>
-                </div>
-              </div>
-            </div>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Prawdziwe przykłady phishingu</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>System punktowy i ranking</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Idealne na szkolenia security awareness</span>
-                </li>
-              </ul>
-            </div>
           </div>
-        </article>
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Prawdziwe przykłady phishingu</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>System punktowy i ranking</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Idealne na szkolenia security awareness</span>
+              </li>
+            </ul>
+          </div>
+        </EventArticle>
 
-        <article id="crossword" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">08</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Krzyżówka Multiplayer</h3>
-              <p class="text-stone-400 mt-1 italic">Setki ludzi, jedna ogromna krzyżówka</p>
-            </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              cały dzień
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Krzyżówka wieloosobowa ogromnych rozmiarów. Setki osób na żywo, w drużynach, rozwiązuje krzyżówkę o wymiarach nawet 5000×5000 pól, gdzie hasła dotyczą wybranej tematyki — np. poznawanie zespołów w firmie. Podłączamy też AI, ale nie pomaga wprost ;)
-            </p>
-            <div class="mb-8">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/crossword-01.webp" alt="Krzyżówka Multiplayer" class="w-full object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Mapa krzyżówki do 5000x5000 pól</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Dowolna tematyka haseł</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Organizacje 5000+ osób rozwiązują ją w mniej niż 30 min</span>
-                </li>
-              </ul>
+        <EventArticle
+          id="crossword"
+          index="08"
+          title="Krzyżówka Multiplayer"
+          subtitle="Setki ludzi, jedna ogromna krzyżówka"
+          duration="cały dzień"
+          description="Krzyżówka wieloosobowa ogromnych rozmiarów. Setki osób na żywo, w drużynach, rozwiązuje krzyżówkę o wymiarach nawet 5000×5000 pól, gdzie hasła dotyczą wybranej tematyki - np. poznawanie zespołów w firmie. Podłączamy też AI, ale nie pomaga wprost ;)"
+        >
+          <div class="mb-8">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/crossword-01.webp" alt="Krzyżówka Multiplayer" class="w-full object-cover" loading="lazy" />
             </div>
           </div>
-        </article>
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Mapa krzyżówki do 5000x5000 pól</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Dowolna tematyka haseł</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Organizacje 5000+ osób rozwiązują ją w mniej niż 30 min</span>
+              </li>
+            </ul>
+          </div>
+        </EventArticle>
 
-        <article id="juiceshop" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">09</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Juice Shop CTF</h3>
-              <p class="text-stone-400 mt-1 italic">Wspólne hackowanie — legalnie!</p>
-            </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              2h — 4h
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Stawiamy OWASP Juice Shop — celowo dziurawy sklep internetowy — i wspólnie go hakujemy! Uczestnicy w drużynach próbują złożyć zamówienie za darmo, znaleźć ukryte produkty, odkryć kody rabatowe i wykorzystać dziesiątki podatności z OWASP Top 10. Prowadzimy mentoring na każdym kroku — to idealne wprowadzenie do bezpieczeństwa webowego.
-            </p>
-            <div class="mb-8">
-              <div class="overflow-hidden rounded-lg border border-dark-600">
-                <img src="/img/juiceshop-01.webp" alt="Juice Shop CTF" class="w-full object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Dziesiątki wyzwań o różnym poziomie trudności</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Praca w drużynach z mentoringiem</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Praktyczna nauka bezpieczeństwa webowego</span>
-                </li>
-              </ul>
+        <EventArticle
+          id="juiceshop"
+          index="09"
+          title="Juice Shop CTF"
+          subtitle="Wspólne hackowanie - legalnie!"
+          duration="2h - 4h"
+          description="Stawiamy OWASP Juice Shop - celowo dziurawy sklep internetowy - i wspólnie go hakujemy! Uczestnicy w drużynach próbują złożyć zamówienie za darmo, znaleźć ukryte produkty, odkryć kody rabatowe i wykorzystać dziesiątki podatności z OWASP Top 10. Prowadzimy mentoring na każdym kroku - to idealne wprowadzenie do bezpieczeństwa webowego."
+        >
+          <div class="mb-8">
+            <div class="overflow-hidden rounded-lg border border-dark-600">
+              <img src="/img/juiceshop-01.webp" alt="Juice Shop CTF" class="w-full object-cover" loading="lazy" />
             </div>
           </div>
-        </article>
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Dziesiątki wyzwań o różnym poziomie trudności</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Praca w drużynach z mentoringiem</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Praktyczna nauka bezpieczeństwa webowego</span>
+              </li>
+            </ul>
+          </div>
+        </EventArticle>
 
-        <article id="minecraft" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">10</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Minecraft Escape Room</h3>
-              <p class="text-stone-400 mt-1 italic">Escape room w świecie klocków — prosto z przeglądarki</p>
-            </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              1h — 2h
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Wspólna gra w przeglądarce osadzona w świecie Minecrafta. Drużyny muszą rozwiązywać zagadki, łamigłówki i wyzwania logiczne, żeby uciec z wirtualnego pokoju. Nie trzeba instalować żadnej gry — wystarczy przeglądarka i chęć współpracy.
-            </p>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Gra w przeglądarce — zero instalacji</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Praca zespołowa i komunikacja</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Świat Minecrafta, który znają wszyscy</span>
-                </li>
-              </ul>
-            </div>
+        <EventArticle
+          id="minecraft"
+          index="10"
+          title="Minecraft Escape Room"
+          subtitle="Escape room w świecie klocków - prosto z przeglądarki"
+          duration="1h - 2h"
+          description="Wspólna gra w przeglądarce osadzona w świecie Minecrafta. Drużyny muszą rozwiązywać zagadki, łamigłówki i wyzwania logiczne, żeby uciec z wirtualnego pokoju. Nie trzeba instalować żadnej gry - wystarczy przeglądarka i chęć współpracy."
+        >
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Gra w przeglądarce - zero instalacji</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Praca zespołowa i komunikacja</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Świat Minecrafta, który znają wszyscy</span>
+              </li>
+            </ul>
           </div>
-        </article>
+        </EventArticle>
 
-        <article id="hackmmo" class="relative">
-          <div class="absolute -left-4 md:left-0 top-0 font-[family-name:var(--font-mono)] text-8xl font-bold text-stone-800/50 select-none -z-10">11</div>
-          <div class="md:ml-16 lg:ml-24">
-            <div class="mb-6">
-              <h3 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Hack The MMO</h3>
-              <p class="text-stone-400 mt-1 italic">Pokonaj niemożliwą grę — hackując ją</p>
-            </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-700 text-stone-300 text-sm font-[family-name:var(--font-mono)] mb-6">
-              <svg class="w-4 h-4 text-pineapple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              2h — 4h
-            </div>
-            <p class="text-stone-300 text-lg leading-relaxed mb-8 max-w-3xl">
-              Gra MMO, która jest celowo niemożliwa do przejścia w uczciwy sposób. Jedyna droga do zwycięstwa? Hakowanie! Uczestnicy analizują ruch sieciowy, modyfikują zapytania i wykorzystują luki w mechanikach gry, żeby pokonać kolejne wyzwania. Dla bardziej zaawansowanych hakerów, którzy chcą poczuć prawdziwy dreszcz emocji.
-            </p>
-            <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Dla zaawansowanych — analiza ruchu sieciowego i exploity</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Prawdziwa gra MMO stworzona do zhackowania</span>
-                </li>
-                <li class="flex items-start gap-3 text-stone-300">
-                  <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
-                  <span>Nauka pentestingu przez zabawę</span>
-                </li>
-              </ul>
-            </div>
+        <EventArticle
+          id="hackmmo"
+          index="11"
+          title="Hack The MMO"
+          subtitle="Pokonaj niemożliwą grę - hackując ją"
+          duration="2h - 4h"
+          description="Gra MMO, która jest celowo niemożliwa do przejścia w uczciwy sposób. Jedyna droga do zwycięstwa? Hakowanie! Uczestnicy analizują ruch sieciowy, modyfikują zapytania i wykorzystują luki w mechanikach gry, żeby pokonać kolejne wyzwania. Dla bardziej zaawansowanych hakerów, którzy chcą poczuć prawdziwy dreszcz emocji."
+        >
+          <div class="bg-dark-800 border border-dark-600 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Dla zaawansowanych - analiza ruchu sieciowego i exploity</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Prawdziwa gra MMO stworzona do zhackowania</span>
+              </li>
+              <li class="flex items-start gap-3 text-stone-300">
+                <span class="text-pineapple-400 mt-0.5 font-[family-name:var(--font-mono)]">&gt;</span>
+                <span>Nauka pentestingu przez zabawę</span>
+              </li>
+            </ul>
           </div>
-        </article>
+        </EventArticle>
 
       </div>
     </div>
-  </section>
+  </main>
 
   <section class="py-24 px-6 bg-dark-800/50">
     <div class="max-w-4xl mx-auto text-center">
-      <p class="font-[family-name:var(--font-mono)] text-pineapple-400 text-sm mb-4">grep -i "dlaczego" reasons.md</p>
-      <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold mb-12">
-        Dlaczego <span class="text-pineapple-400">ananasy</span>?
-      </h2>
+      <SectionHeader command='grep -i "dlaczego" reasons.md' title="Dlaczego ananasy?" />
 
       <div class="grid md:grid-cols-3 gap-8 text-left">
-        <div class="bg-dark-900 border border-dark-600 rounded-lg p-6">
-          <div class="text-2xl mb-3">🎯</div>
-          <h3 class="font-[family-name:var(--font-display)] font-bold text-lg mb-2">Sprawdzone formaty</h3>
-          <p class="text-stone-400 text-sm">Każdy event był wielokrotnie testowany na prawdziwych programistach. Wiemy, co działa.</p>
-        </div>
-        <div class="bg-dark-900 border border-dark-600 rounded-lg p-6">
-          <div class="text-2xl mb-3">⚡</div>
-          <h3 class="font-[family-name:var(--font-display)] font-bold text-lg mb-2">Plug & Play</h3>
-          <p class="text-stone-400 text-sm">Przyjeżdżamy z gotowym setupem. Wy zapewniacie ludzi i ekran — my robimy resztę.</p>
-        </div>
-        <div class="bg-dark-900 border border-dark-600 rounded-lg p-6">
-          <div class="text-2xl mb-3">🍍</div>
-          <h3 class="font-[family-name:var(--font-display)] font-bold text-lg mb-2">Soczysta zabawa</h3>
-          <p class="text-stone-400 text-sm">Eventy IT nie muszą być nudne. My gwarantujemy śmiech, rywalizację i nerdowskie vibes.</p>
-        </div>
+        <ReasonCard
+          icon="🎯"
+          title="Sprawdzone formaty"
+          description="Każdy event był wielokrotnie testowany na prawdziwych programistach. Wiemy, co działa."
+        />
+        <ReasonCard
+          icon="⚡"
+          title="Plug & Play"
+          description="Przyjeżdżamy z gotowym setupem. Wy zapewniacie ludzi i ekran - my robimy resztę."
+        />
+        <ReasonCard
+          icon="🍍"
+          title="Soczysta zabawa"
+          description="Eventy IT nie muszą być nudne. My gwarantujemy śmiech, rywalizację i nerdowskie vibes."
+        />
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 mt-16 max-w-2xl mx-auto">
@@ -606,33 +504,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section id="contact" class="py-24 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="font-[family-name:var(--font-mono)] text-pineapple-400 text-sm mb-4">ssh kontakt@ananasy.it</p>
-      <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold mb-6">
-        Porozmawiajmy
-      </h2>
-      <p class="text-stone-400 text-lg mb-12 max-w-xl mx-auto">
-        Masz event firmowy, konferencję albo meetup? Napisz do nas, a dobierzemy idealny format.
-      </p>
-
-      <div class="inline-flex flex-col sm:flex-row gap-4">
-        <a href="mailto:kontakt@ananasy.it" class="inline-flex items-center gap-2 px-8 py-4 bg-pineapple-400 text-dark-900 font-bold rounded-lg hover:bg-pineapple-300 transition-colors text-lg">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-          kontakt@ananasy.it
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="border-t border-dark-700 py-8 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="font-[family-name:var(--font-display)] font-bold">
-        <span class="text-pineapple-400">ananasy</span><span class="text-stone-600">.</span><span class="text-leaf-400">it</span>
-      </div>
-      <p class="text-stone-600 text-sm font-[family-name:var(--font-mono)]">
-        &copy; {new Date().getFullYear()} // made with 🍍 &amp; &lt;code/&gt;
-      </p>
-    </div>
-  </footer>
+  <Contact />
+  <Footer />
 </Layout>
