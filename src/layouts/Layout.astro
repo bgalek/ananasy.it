@@ -4,12 +4,17 @@ import '../styles/global.css'
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
   title = "ananasy.it - Eventy IT, które zapamiętasz",
-  description = "Interaktywne eventy IT: teleturnieje, code kata, CSS battles i hackatony. Dodaj pikanterii swoim spotkaniom firmowym!"
+  description = "Interaktywne eventy IT: teleturnieje, code kata, CSS battles i hackatony. Dodaj pikanterii swoim spotkaniom firmowym!",
+  ogImage = "/img/vabank-it-01.webp"
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, "https://ananasy.it");
+const ogImageURL = new URL(ogImage, "https://ananasy.it");
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -39,16 +44,48 @@ const websiteSchema = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="ananasy.it" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; media-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+
     <title>{title}</title>
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script is:inline async src="https://plausible.io/js/pa-xtuuxBf-cZ5LWYCBo3qzT.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
   </head>
   <body class="antialiased">
     <slot />
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
 </html>

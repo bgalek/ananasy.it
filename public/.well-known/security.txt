@@ -1,0 +1,3 @@
+Contact: mailto:kontakt@ananasy.it
+Preferred-Languages: pl, en
+Canonical: https://ananasy.it/.well-known/security.txt
